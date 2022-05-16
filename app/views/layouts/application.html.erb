@@ -6,11 +6,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <%= link_to "患者カルテバインダ", posts_path %> <%= link_to "新規患者登録", new_post_path %> <%= link_to "患者予約管理",blogs_index_path %>
+      <%= render "layouts/header" %>
+    </header>
+    <%= render "layouts/flash" %>
+    <hr>
     <%= yield %>
   </body>
 </html>

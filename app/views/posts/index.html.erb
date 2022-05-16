@@ -1,0 +1,27 @@
+<h1>患者カルテバインダ</h1>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">カルテNo.</th>
+      <th scope="col">患者名</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each.with_index(1) do |post, i| %>
+      <tr>
+        <th scope="row"><%= i %></th>
+        
+        <td>
+          <%= link_to post.title, post %>
+          <%= link_to "編集", edit_post_path(post) %>
+          <%
+=begin%>
+ <%= link_to "削除", post, method: :delete, data: { confirm: "削除しますか?" } %> 
+<%
+=end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
